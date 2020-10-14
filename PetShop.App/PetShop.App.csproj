@@ -16,4 +16,8 @@
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PetShop.Shared\PetShop.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
