@@ -14,13 +14,13 @@ namespace PetShop.Client
             builder.RootComponents.Add<PetShop.App.App>("app");
 
             builder.Services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(
-                client => client.BaseAddress = new Uri("https://localhost:5001"));
+                client => client.BaseAddress = new Uri("https://blazorpetshopapi.azurewebsites.net"));
 
             builder.Services.AddHttpClient<ICountryDataService, CountryDataService>(
-                client => client.BaseAddress = new Uri("https://localhost:5001"));
+                client => client.BaseAddress = new Uri("https://blazorpetshopapi.azurewebsites.net"));
 
             builder.Services.AddHttpClient<IJobCategoryDataService, JobCategoryDataService>(
-                client => client.BaseAddress = new Uri("https://localhost:5001"));
+                client => client.BaseAddress = new Uri("https://blazorpetshopapi.azurewebsites.net"));
 
 
             await builder.Build().RunAsync();

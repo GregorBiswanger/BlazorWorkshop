@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using PetShop.App.Components;
 using PetShop.App.Services;
 using PetShop.Shared;
@@ -10,6 +11,9 @@ namespace PetShop.App.Pages
 {
     public partial class EmployeeOverview
     {
+        [CascadingParameter]
+        Task<AuthenticationState> AuthenticationState { get; set; }
+
         public IEnumerable<Employee> Employees { get; set; }
 
         [Inject]
@@ -22,9 +26,13 @@ namespace PetShop.App.Pages
             Employees = await EmployeeDataService.GetAllEmployees();
         }
         
-        protected void QuickAddEmployee()
+        protected async Task QuickAddEmployee()
         {
-            AddEmployeeDialog.Show();
+            var authenticationState = await AuthenticationState;
+            if(authenticationState.User.Identity.Name == "Gregor")
+            {
+                AddEmployeeDialog.Show();
+            }
         }
 
         public async void AddEmployeeDialog_OnDialogClose()

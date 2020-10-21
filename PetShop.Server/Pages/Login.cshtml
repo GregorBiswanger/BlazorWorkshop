@@ -1,0 +1,31 @@
+﻿@page
+@model PetShop.Server.Pages.LoginModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Login</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <div class="form-group row">
+                    <label asp-for="Email" class="col-sm-4 col-form-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="Email" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Password" class="col-sm-4 col-form-label"></label>
+                    <div class="col-sm-8">
+                        <input asp-for="Password" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-froup row">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+

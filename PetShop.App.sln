@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Api", "PetShop.Api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.ComponentsLibrary", "PetShop.ComponentsLibrary\PetShop.ComponentsLibrary.csproj", "{A7AB27CB-91B7-4029-A82C-2282588D9833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Client", "PetShop.Client\PetShop.Client.csproj", "{393D1541-5D7B-407E-8993-FB4E879935BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Client", "PetShop.Client\PetShop.Client.csproj", "{393D1541-5D7B-407E-8993-FB4E879935BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShop.Server", "PetShop.Server\PetShop.Server.csproj", "{B06141EE-1DB9-44E8-AE36-6F0A13DBD06E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetShop.Server", "PetShop.Server\PetShop.Server.csproj", "{B06141EE-1DB9-44E8-AE36-6F0A13DBD06E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

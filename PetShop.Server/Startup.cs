@@ -1,6 +1,8 @@
 using System;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,14 +26,19 @@ namespace PetShop.Server
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
             services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(
-                client => client.BaseAddress = new Uri("https://localhost:5001"));
+                client => client.BaseAddress = new Uri("https://blazorpetshopapi.azurewebsites.net"));
 
             services.AddHttpClient<ICountryDataService, CountryDataService>(
-                client => client.BaseAddress = new Uri("https://localhost:5001"));
+                client => client.BaseAddress = new Uri("https://blazorpetshopapi.azurewebsites.net"));
 
             services.AddHttpClient<IJobCategoryDataService, JobCategoryDataService>(
-                client => client.BaseAddress = new Uri("https://localhost:5001"));
+                client => client.BaseAddress = new Uri("https://blazorpetshopapi.azurewebsites.net"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +60,9 @@ namespace PetShop.Server
 
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
@@ -61,3 +71,8 @@ namespace PetShop.Server
         }
     }
 }
+
+
+
+
+

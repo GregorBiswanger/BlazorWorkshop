@@ -1,5 +1,5 @@
-﻿using PetShop.Shared;
-using System;
+﻿using Microsoft.AspNetCore.Http;
+using PetShop.Shared;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -11,15 +11,17 @@ namespace PetShop.App.Services
     public class EmployeeDataService : IEmployeeDataService
     {
         private readonly HttpClient _httpClient;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         private JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions 
         { 
             PropertyNameCaseInsensitive = true 
         };
 
-        public EmployeeDataService(HttpClient httpClient)
+        public EmployeeDataService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
             _httpClient = httpClient;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IEnumerable<Employee>> GetAllEmployees()
