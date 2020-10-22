@@ -25,13 +25,20 @@
                 <NavLink class="list-group-item list-group-item-action bg-light" href="/employeeedit">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> Add new employee
                 </NavLink>
-                <NavLink class="list-group-item list-group-item-action bg-light" href="Logout">
+                <NavLink class="list-group-item list-group-item-action bg-light" href="identity/account/logout">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> Log out 
                     (@context.User.Claims.FirstOrDefault(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value)
                 </NavLink>
+            @*<form method="post"
+                  action="identity/account/logout">
+                <button class="list-group-item list-group-item-action bg-light">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Log out
+                    (@context.User.Claims.FirstOrDefault(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value)
+                </button>
+            </form>*@
             </Authorized>
             <NotAuthorized>
-                <NavLink class="list-group-item list-group-item-action bg-light" href="Login">
+                <NavLink class="list-group-item list-group-item-action bg-light" href="/identity/account/login">
                     <span class="oi oi-list-rich" aria-hidden="true"></span> Log in
                 </NavLink>
             </NotAuthorized>
